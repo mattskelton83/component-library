@@ -1,10 +1,12 @@
 import { Component, h, Prop } from '@stencil/core';
 
 interface MyHeroI {
-  title: string;
-  subtitle: string;
+  heroTitle: string;
+  heroSubtitle: string;
   heroClass: string;
   heroContentClass: string;
+  heroTitleClass: string;
+  heroSubTitleClass: string
 }
 
 @Component({
@@ -14,21 +16,21 @@ interface MyHeroI {
 })
 export class MyHero implements MyHeroI {
 
-  @Prop() title: string;
-  @Prop() subtitle: string;
+  @Prop() heroTitle: string;
+  @Prop() heroSubtitle: string;
 
   @Prop() heroClass: string;
   @Prop() heroContentClass: string;
-  @Prop() titleClass: string;
-  @Prop() subTitleClass: string;
+  @Prop() heroTitleClass: string;
+  @Prop() heroSubTitleClass: string;
 
 
   render() {
     return (
       <div class={`hero ${this.heroClass}`}>
         <div class={`hero__content ${this.heroContentClass}`}>
-          <h1 class={`hero__title ${this.titleClass}`}>{this.title}</h1>
-          <p class={`hero__subtitle ${this.subTitleClass}`}>{this.subtitle}</p>
+          <h1 class={`hero__title ${this.heroTitleClass}`}>{this.heroTitle}</h1>
+          <p class={`hero__subtitle ${this.heroSubTitleClass}`}>{this.heroSubtitle}</p>
         </div>
       </div>
     );
