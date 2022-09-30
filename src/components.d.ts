@@ -11,6 +11,10 @@ export namespace Components {
         "cardHeaderClass": string;
         "cardTitle": string | null;
     }
+    interface MyButton {
+        "appearance": string;
+        "text": string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -28,6 +32,14 @@ export namespace Components {
     interface MyFirstComponent {
         "blockIntro": string;
         "blockTitle": string;
+    }
+    interface MyHero {
+        "heroClass": string;
+        "heroContentClass": string;
+        "subTitleClass": string;
+        "subtitle": string;
+        "title": string;
+        "titleClass": string;
     }
     interface MyInput {
         "inputAppearance": string;
@@ -48,6 +60,12 @@ declare global {
         prototype: HTMLCardComponentElement;
         new (): HTMLCardComponentElement;
     };
+    interface HTMLMyButtonElement extends Components.MyButton, HTMLStencilElement {
+    }
+    var HTMLMyButtonElement: {
+        prototype: HTMLMyButtonElement;
+        new (): HTMLMyButtonElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -60,6 +78,12 @@ declare global {
         prototype: HTMLMyFirstComponentElement;
         new (): HTMLMyFirstComponentElement;
     };
+    interface HTMLMyHeroElement extends Components.MyHero, HTMLStencilElement {
+    }
+    var HTMLMyHeroElement: {
+        prototype: HTMLMyHeroElement;
+        new (): HTMLMyHeroElement;
+    };
     interface HTMLMyInputElement extends Components.MyInput, HTMLStencilElement {
     }
     var HTMLMyInputElement: {
@@ -68,8 +92,10 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "card-component": HTMLCardComponentElement;
+        "my-button": HTMLMyButtonElement;
         "my-component": HTMLMyComponentElement;
         "my-first-component": HTMLMyFirstComponentElement;
+        "my-hero": HTMLMyHeroElement;
         "my-input": HTMLMyInputElement;
     }
 }
@@ -78,6 +104,10 @@ declare namespace LocalJSX {
         "cardClass"?: string;
         "cardHeaderClass"?: string;
         "cardTitle"?: string | null;
+    }
+    interface MyButton {
+        "appearance"?: string;
+        "text"?: string;
     }
     interface MyComponent {
         /**
@@ -97,6 +127,14 @@ declare namespace LocalJSX {
         "blockIntro"?: string;
         "blockTitle"?: string;
     }
+    interface MyHero {
+        "heroClass"?: string;
+        "heroContentClass"?: string;
+        "subTitleClass"?: string;
+        "subtitle"?: string;
+        "title"?: string;
+        "titleClass"?: string;
+    }
     interface MyInput {
         "inputAppearance"?: string;
         "inputId"?: string;
@@ -107,8 +145,10 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "card-component": CardComponent;
+        "my-button": MyButton;
         "my-component": MyComponent;
         "my-first-component": MyFirstComponent;
+        "my-hero": MyHero;
         "my-input": MyInput;
     }
 }
@@ -117,8 +157,10 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "card-component": LocalJSX.CardComponent & JSXBase.HTMLAttributes<HTMLCardComponentElement>;
+            "my-button": LocalJSX.MyButton & JSXBase.HTMLAttributes<HTMLMyButtonElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "my-first-component": LocalJSX.MyFirstComponent & JSXBase.HTMLAttributes<HTMLMyFirstComponentElement>;
+            "my-hero": LocalJSX.MyHero & JSXBase.HTMLAttributes<HTMLMyHeroElement>;
             "my-input": LocalJSX.MyInput & JSXBase.HTMLAttributes<HTMLMyInputElement>;
         }
     }
