@@ -6,6 +6,11 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface CardComponent {
+        "cardClass": string;
+        "cardHeaderClass": string;
+        "cardTitle": string | null;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -24,8 +29,25 @@ export namespace Components {
         "blockIntro": string;
         "blockTitle": string;
     }
+    interface MyInput {
+        "inputAppearance": string;
+        "inputId": string;
+        "inputLabel": string;
+        "inputPlaceholder": string;
+        "inputType": string;
+    }
+}
+export interface MyInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLMyInputElement;
 }
 declare global {
+    interface HTMLCardComponentElement extends Components.CardComponent, HTMLStencilElement {
+    }
+    var HTMLCardComponentElement: {
+        prototype: HTMLCardComponentElement;
+        new (): HTMLCardComponentElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -38,12 +60,25 @@ declare global {
         prototype: HTMLMyFirstComponentElement;
         new (): HTMLMyFirstComponentElement;
     };
+    interface HTMLMyInputElement extends Components.MyInput, HTMLStencilElement {
+    }
+    var HTMLMyInputElement: {
+        prototype: HTMLMyInputElement;
+        new (): HTMLMyInputElement;
+    };
     interface HTMLElementTagNameMap {
+        "card-component": HTMLCardComponentElement;
         "my-component": HTMLMyComponentElement;
         "my-first-component": HTMLMyFirstComponentElement;
+        "my-input": HTMLMyInputElement;
     }
 }
 declare namespace LocalJSX {
+    interface CardComponent {
+        "cardClass"?: string;
+        "cardHeaderClass"?: string;
+        "cardTitle"?: string | null;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -62,17 +97,29 @@ declare namespace LocalJSX {
         "blockIntro"?: string;
         "blockTitle"?: string;
     }
+    interface MyInput {
+        "inputAppearance"?: string;
+        "inputId"?: string;
+        "inputLabel"?: string;
+        "inputPlaceholder"?: string;
+        "inputType"?: string;
+        "onInputChange"?: (event: MyInputCustomEvent<string>) => void;
+    }
     interface IntrinsicElements {
+        "card-component": CardComponent;
         "my-component": MyComponent;
         "my-first-component": MyFirstComponent;
+        "my-input": MyInput;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "card-component": LocalJSX.CardComponent & JSXBase.HTMLAttributes<HTMLCardComponentElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "my-first-component": LocalJSX.MyFirstComponent & JSXBase.HTMLAttributes<HTMLMyFirstComponentElement>;
+            "my-input": LocalJSX.MyInput & JSXBase.HTMLAttributes<HTMLMyInputElement>;
         }
     }
 }
