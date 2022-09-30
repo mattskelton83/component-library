@@ -6,6 +6,11 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface CardComponent {
+        "cardClass": string;
+        "cardHeaderClass": string;
+        "cardTitle": string | null;
+    }
     interface MyButton {
         "appearance": string;
         "text": string;
@@ -28,8 +33,33 @@ export namespace Components {
         "blockIntro": string;
         "blockTitle": string;
     }
+    interface MyHero {
+        "heroClass": string;
+        "heroContentClass": string;
+        "heroSubTitleClass": string;
+        "heroSubtitle": string;
+        "heroTitle": string;
+        "heroTitleClass": string;
+    }
+    interface MyInput {
+        "inputAppearance": string;
+        "inputId": string;
+        "inputLabel": string;
+        "inputPlaceholder": string;
+        "inputType": string;
+    }
+}
+export interface MyInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLMyInputElement;
 }
 declare global {
+    interface HTMLCardComponentElement extends Components.CardComponent, HTMLStencilElement {
+    }
+    var HTMLCardComponentElement: {
+        prototype: HTMLCardComponentElement;
+        new (): HTMLCardComponentElement;
+    };
     interface HTMLMyButtonElement extends Components.MyButton, HTMLStencilElement {
     }
     var HTMLMyButtonElement: {
@@ -48,13 +78,33 @@ declare global {
         prototype: HTMLMyFirstComponentElement;
         new (): HTMLMyFirstComponentElement;
     };
+    interface HTMLMyHeroElement extends Components.MyHero, HTMLStencilElement {
+    }
+    var HTMLMyHeroElement: {
+        prototype: HTMLMyHeroElement;
+        new (): HTMLMyHeroElement;
+    };
+    interface HTMLMyInputElement extends Components.MyInput, HTMLStencilElement {
+    }
+    var HTMLMyInputElement: {
+        prototype: HTMLMyInputElement;
+        new (): HTMLMyInputElement;
+    };
     interface HTMLElementTagNameMap {
+        "card-component": HTMLCardComponentElement;
         "my-button": HTMLMyButtonElement;
         "my-component": HTMLMyComponentElement;
         "my-first-component": HTMLMyFirstComponentElement;
+        "my-hero": HTMLMyHeroElement;
+        "my-input": HTMLMyInputElement;
     }
 }
 declare namespace LocalJSX {
+    interface CardComponent {
+        "cardClass"?: string;
+        "cardHeaderClass"?: string;
+        "cardTitle"?: string | null;
+    }
     interface MyButton {
         "appearance"?: string;
         "text"?: string;
@@ -77,19 +127,41 @@ declare namespace LocalJSX {
         "blockIntro"?: string;
         "blockTitle"?: string;
     }
+    interface MyHero {
+        "heroClass"?: string;
+        "heroContentClass"?: string;
+        "heroSubTitleClass"?: string;
+        "heroSubtitle"?: string;
+        "heroTitle"?: string;
+        "heroTitleClass"?: string;
+    }
+    interface MyInput {
+        "inputAppearance"?: string;
+        "inputId"?: string;
+        "inputLabel"?: string;
+        "inputPlaceholder"?: string;
+        "inputType"?: string;
+        "onInputChange"?: (event: MyInputCustomEvent<string>) => void;
+    }
     interface IntrinsicElements {
+        "card-component": CardComponent;
         "my-button": MyButton;
         "my-component": MyComponent;
         "my-first-component": MyFirstComponent;
+        "my-hero": MyHero;
+        "my-input": MyInput;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "card-component": LocalJSX.CardComponent & JSXBase.HTMLAttributes<HTMLCardComponentElement>;
             "my-button": LocalJSX.MyButton & JSXBase.HTMLAttributes<HTMLMyButtonElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "my-first-component": LocalJSX.MyFirstComponent & JSXBase.HTMLAttributes<HTMLMyFirstComponentElement>;
+            "my-hero": LocalJSX.MyHero & JSXBase.HTMLAttributes<HTMLMyHeroElement>;
+            "my-input": LocalJSX.MyInput & JSXBase.HTMLAttributes<HTMLMyInputElement>;
         }
     }
 }
