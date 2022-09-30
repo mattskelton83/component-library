@@ -7,7 +7,7 @@ import { Component, Event, EventEmitter, State, Prop, h } from '@stencil/core';
 })
 export class MyInput {
   @Prop() inputType: string = 'text';
-  @Prop() inputId: string = 'text';
+  @Prop() inputId: string;
   @Prop() inputAppearance: string;
   @Prop() inputLabel: string;
   @Prop() inputPlaceholder: string;
@@ -24,12 +24,12 @@ export class MyInput {
   render() {
     return (
       <div>
-        <label htmlFor="{this.inputId}">{this.inputLabel}</label>
+        <label htmlFor={this.inputId}>{this.inputLabel}</label>
         <input
-          type="{this.inputType}"
-          id="{this.inputId}"
-          class="{this.inputAppearance}"
-          placeholder="{this.inputPlaceholder}"
+          type={this.inputType}
+          id={this.inputId}
+          class={this.inputAppearance}
+          placeholder={this.inputPlaceholder}
           value={this.value}
           onInput={event => this.handleChange(event)}
         />

@@ -7,18 +7,17 @@ import { Component, Prop, h } from '@stencil/core';
 })
 export class CardComponent {
   @Prop() cardTitle: string | null = null;
-  @Prop() cardClass: string;
-  @Prop() cardHeaderClass: string;
+  @Prop() cardClass: string = '';
+  @Prop() cardHeaderClass: string = '';
 
   render() {
     return (
-      <div class="card {this.cardClass}">
-        if (this.cardTitle)
-        {
-          <div class="card__header {this.cardHeaderClass}">
+      <div class={`card ${this.cardClass}`}>
+        {this.cardTitle && (
+          <div class={`card__header ${this.cardHeaderClass}`}>
             <h3>{this.cardTitle}</h3>
           </div>
-        }
+        )}
         <slot></slot>
       </div>
     );
