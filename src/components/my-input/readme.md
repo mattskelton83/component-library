@@ -10,7 +10,7 @@
 | Property           | Attribute           | Description | Type     | Default     |
 | ------------------ | ------------------- | ----------- | -------- | ----------- |
 | `inputAppearance`  | `input-appearance`  |             | `string` | `undefined` |
-| `inputId`          | `input-id`          |             | `string` | `'text'`    |
+| `inputId`          | `input-id`          |             | `string` | `undefined` |
 | `inputLabel`       | `input-label`       |             | `string` | `undefined` |
 | `inputPlaceholder` | `input-placeholder` |             | `string` | `undefined` |
 | `inputType`        | `input-type`        |             | `string` | `'text'`    |

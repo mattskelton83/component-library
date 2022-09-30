@@ -36,10 +36,10 @@ export namespace Components {
     interface MyHero {
         "heroClass": string;
         "heroContentClass": string;
-        "subTitleClass": string;
-        "subtitle": string;
-        "title": string;
-        "titleClass": string;
+        "heroSubTitleClass": string;
+        "heroSubtitle": string;
+        "heroTitle": string;
+        "heroTitleClass": string;
     }
     interface MyInput {
         "inputAppearance": string;
@@ -130,10 +130,10 @@ declare namespace LocalJSX {
     interface MyHero {
         "heroClass"?: string;
         "heroContentClass"?: string;
-        "subTitleClass"?: string;
-        "subtitle"?: string;
-        "title"?: string;
-        "titleClass"?: string;
+        "heroSubTitleClass"?: string;
+        "heroSubtitle"?: string;
+        "heroTitle"?: string;
+        "heroTitleClass"?: string;
     }
     interface MyInput {
         "inputAppearance"?: string;
