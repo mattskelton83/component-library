@@ -6,16 +6,15 @@ interface MyHeroI {
   heroClass: string;
   heroContentClass: string;
   heroTitleClass: string;
-  heroSubTitleClass: string
+  heroSubTitleClass: string;
 }
 
 @Component({
   tag: 'my-hero',
   styleUrl: 'my-hero.css',
-  shadow: true,
+  shadow: false,
 })
 export class MyHero implements MyHeroI {
-
   @Prop() heroTitle: string;
   @Prop() heroSubtitle: string;
 
@@ -23,7 +22,6 @@ export class MyHero implements MyHeroI {
   @Prop() heroContentClass: string;
   @Prop() heroTitleClass: string;
   @Prop() heroSubTitleClass: string;
-
 
   render() {
     return (
@@ -35,5 +33,4 @@ export class MyHero implements MyHeroI {
       </div>
     );
   }
-
 }

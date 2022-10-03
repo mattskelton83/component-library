@@ -8,19 +8,17 @@ interface ButtonI {
 @Component({
   tag: 'my-button',
   styleUrl: 'my-button.css',
-  shadow: true,
+  shadow: false,
 })
 export class MyButton implements ButtonI {
-
   @Prop() text: string;
   @Prop() appearance: string;
 
   render() {
     return (
-      <button class={`btn ${this.appearance}`} type='button'>
+      <button class={`btn ${this.appearance}`} type="button">
         {this.text}
       </button>
     );
   }
-
 }

@@ -3,7 +3,7 @@ import { Component, Event, EventEmitter, State, Prop, h } from '@stencil/core';
 @Component({
   tag: 'my-input',
   styleUrl: 'my-input.css',
-  shadow: true,
+  shadow: false,
 })
 export class MyInput {
   @Prop() inputType: string = 'text';
