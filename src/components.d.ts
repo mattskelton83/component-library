@@ -11,6 +11,8 @@ export namespace Components {
         "cardHeaderClass": string;
         "cardTitle": string | null;
     }
+    interface InputAlert {
+    }
     interface MyButton {
         "appearance": string;
         "text": string;
@@ -60,6 +62,12 @@ declare global {
         prototype: HTMLCardComponentElement;
         new (): HTMLCardComponentElement;
     };
+    interface HTMLInputAlertElement extends Components.InputAlert, HTMLStencilElement {
+    }
+    var HTMLInputAlertElement: {
+        prototype: HTMLInputAlertElement;
+        new (): HTMLInputAlertElement;
+    };
     interface HTMLMyButtonElement extends Components.MyButton, HTMLStencilElement {
     }
     var HTMLMyButtonElement: {
@@ -92,6 +100,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "card-component": HTMLCardComponentElement;
+        "input-alert": HTMLInputAlertElement;
         "my-button": HTMLMyButtonElement;
         "my-component": HTMLMyComponentElement;
         "my-first-component": HTMLMyFirstComponentElement;
@@ -104,6 +113,8 @@ declare namespace LocalJSX {
         "cardClass"?: string;
         "cardHeaderClass"?: string;
         "cardTitle"?: string | null;
+    }
+    interface InputAlert {
     }
     interface MyButton {
         "appearance"?: string;
@@ -145,6 +156,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "card-component": CardComponent;
+        "input-alert": InputAlert;
         "my-button": MyButton;
         "my-component": MyComponent;
         "my-first-component": MyFirstComponent;
@@ -157,6 +169,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "card-component": LocalJSX.CardComponent & JSXBase.HTMLAttributes<HTMLCardComponentElement>;
+            "input-alert": LocalJSX.InputAlert & JSXBase.HTMLAttributes<HTMLInputAlertElement>;
             "my-button": LocalJSX.MyButton & JSXBase.HTMLAttributes<HTMLMyButtonElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "my-first-component": LocalJSX.MyFirstComponent & JSXBase.HTMLAttributes<HTMLMyFirstComponentElement>;
