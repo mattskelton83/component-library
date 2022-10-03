@@ -3,7 +3,7 @@ import { Component, Prop, h } from '@stencil/core';
 @Component({
   tag: 'card-component',
   styleUrl: 'card-component.css',
-  shadow: true,
+  shadow: false,
 })
 export class CardComponent {
   @Prop() cardTitle: string | null = null;
@@ -12,7 +12,7 @@ export class CardComponent {
 
   render() {
     return (
-      <div class={`card ${this.cardClass}`}>
+      <div class={`card p-2 ${this.cardClass}`}>
         {this.cardTitle && (
           <div class={`card__header ${this.cardHeaderClass}`}>
             <h3>{this.cardTitle}</h3>
