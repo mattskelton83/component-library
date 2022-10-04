@@ -26,7 +26,7 @@ export class MyHero implements MyHeroI {
   render() {
     return (
       <div class={`hero ${this.heroClass}`}>
-        <div class={`hero__content ${this.heroContentClass}`}>
+        <div class={`hero__content bg-primary bg-red-500 ${this.heroContentClass}`}>
           <h1 class={`hero__title ${this.heroTitleClass}`}>{this.heroTitle}</h1>
           <p class={`hero__subtitle ${this.heroSubTitleClass}`}>{this.heroSubtitle}</p>
         </div>

@@ -4,7 +4,7 @@
 // const { base } = require('@benjaminsinger/sds-tailwind-config');
 
 module.exports = {
-  // safelist: [ // includes /all/ default tailwind styles
+  // safelist: [ // includes /all/ out-of-the-box tailwind styles
   //   {
   //     pattern: /^(.*?)/,
   //   },
